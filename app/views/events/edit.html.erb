@@ -1,0 +1,81 @@
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<nav class="navbar navbar-default">
+  <div class="container" >
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+          <%=image_tag("logo.png")%><p style="font-family:'Pacifico',cursive;font-size:28px;">Events Schedule</p></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <%if current_user==false%>
+     
+      <li class="active">
+      <li><%= link_to "<button class=btn btn-success>Log out</button>".html_safe,log_out_path%>
+      </li>
+      <dir id="user_nav">
+      <li><p style="font-size:18px"><b>logged in as</b></p><%= current_user.username%>
+      </li>
+
+       <%end%>
+  </div>
+</nav>
+</br></br>
+ <% if current_user.id == @inviter %>
+
+
+<%= form_for @event, url:event_edit_path(@user,@event), method: :put do |f|%>
+
+ <%= f.label :Enter_Event_name%>    <%= f.text_field :event %></br></br>
+    <%= f.label :Enter_Venue%>       <%= f.text_field :venue %></br></br>
+    <%= f.label :Enter_date%>       <%= f.text_field :date %></br></br>
+    <%= f.label :Enter_time %>           <%= f.text_field :time %></br></br>
+    <%= f.label :Enter_description%>    <%= f.text_area :description, size: "60x5" %></br></br>
+    <%= f.label :Invited_by %> </br>    
+    <%= current_user.username%> </br>
+     </br>
+      <%= f.label :Select_invitee %> 
+        <ul>
+          <% @users.each do |role| %>
+           
+            <li>
+            <%= check_box_tag 'role_ids[]', role.id -%>
+            <%= role.username -%>
+            </li>
+          
+          <% end %>
+      </ul>
+
+    <%= f.label :Enter_Status%>  
+    <%= f.select :status, ['open', 'closed']%></br></br></br>
+ <%= f.submit :Submit,:class=>"btn" %>
+
+ <%end%>
+ <%else%>
+ <%= form_for :event do |f| %>
+
+ <%= f.label :Enter_Event_name%>    <%= f.text_field :event, :disabled => true %></br></br>
+    <%= f.label :Enter_Venue%>       <%= f.text_field :venue, :disabled => true %></br></br>
+    <%= f.label :Enter_date%>       <%= f.text_field :date, :disabled => true %></br></br>
+    <%= f.label :Enter_time %>           <%= f.text_field :time, :disabled => true %></br></br>
+    <%= f.label :Enter_description%>    <%= f.text_area :description, size: "60x5", :disabled => true %></br></br>
+    <%= f.label :Invited_by %> </br>    
+    <%= current_user.username%> </br>
+     </br>
+    <%= f.label :Invitee %> 
+
+   
+                  <%@participant=@event.invitees%>
+                  <%@participant.each do |name|%>
+
+                  <p><%=name.username %></p
+           
+           
+          <% end %>
+   
+    <%= f.label :Enter_Status%>  
+    <%= f.select :status, :disabled => true%></br></br></br>
+    
+ <%= link_to "<button class=btn btn-success>Back</button>".html_safe,event_new_path(@user)%>
+ <%end%>
+
+ <%end%>
+ 

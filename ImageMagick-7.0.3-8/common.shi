@@ -1,0 +1,22 @@
+# Test environment
+top_srcdir='/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8'
+top_builddir='/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8'
+
+set -a
+COMPARE="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/utilities/magick compare"
+COMPOSITE="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/utilities/magick composite"
+CONJURE="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/utilities/magick conjure"
+CONVERT="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/utilities/magick convert"
+DISPLAY="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/utilities/magick display"
+IDENTIFY="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/utilities/magick identify"
+MAGICK="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/utilities/magick"
+MONTAGE="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/utilities/magick montage"
+VALIDATE="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/tests/validate"
+DRAWTEST="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/tests/drawtest"
+WANDTEST="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/tests/wandtest"
+LD_LIBRARY_PATH="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/magick/.libs:${LD_LIBRARY_PATH}"
+MAGICK_CODER_MODULE_PATH="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/coders"
+MAGICK_CONFIGURE_PATH="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/config:/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/config"
+MAGICK_FILTER_MODULE_PATH="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/filters"
+PATH="/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/utilities:/home/qwinix/Desktop/Rails/ImageMagick-7.0.3-8/tests:${PATH}"
+set +a

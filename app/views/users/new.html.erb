@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="eventApp" ng-controller="eventController"  >
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container" >
+    <div class="navbar-header">
+     
+          <%=link_to (image_tag("logo.png")),'/#'%><p style="font-family:'Pacifico',cursive;font-size:28px;">Events Schedule</p>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+     
+     
+      <li class="active">
+
+      
+      <li class="active">
+      <li><%= link_to "<button class=btn btn-success>Log in</button>".html_safe,login_form_path%>
+      </li>
+    
+      
+  </div>
+</nav>
+
+<%= form_for @user,url: user_create_path do |f| %>
+</br></br>
+
+  <div style="font-size:18px;">
+  
+  <div class="container">
+  <h1 style="text-align:center">Sign Up</h1></br>
+ <div class="row">
+ <div class="col-sm-4">
+ </div>
+ <div class="col-sm-5">
+      <%= f.label "Enter First name" %>    <%= f.text_field :firstname , class: "form-control",required: true%></br></br>
+    <%= f.label :Enter_Last_name%>       <%= f.text_field :lastname , class: "form-control",:required=>true %></br></br>
+    <%= f.label :Enter_User_name%>       <%= f.text_field :username, class: "form-control",:required=>true%></br></br>
+    <%= f.label :Enter_valid_Email %>           <%= f.email_field :email, class: "form-control",:required=>true %></br></br>
+    <%= f.label :Enter_Ph_number%>    <%= f.text_field :phone,class: "form-control",:required=>true %></br></br>
+    
+    <%= f.label :Enter_password %>              <%= f.password_field :password,class: "form-control", :ng => {:model => "password"},:required =>true %></br></br>
+      <% if @user.errors.any? %>
+    <div class="error_messages">
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.label :password_confirmation %>  <%= f.password_field :password_confirmation,class: "form-control",:ng => {:model => "confrim"},:required=>true %></br></br>
+  
+  <%= f.submit :Submit,:class=>"btn",:ng => {:disabled => "result"}  %>
+  <%= link_to "<button class=btn btn-success>Cancel</button>".html_safe,main_form_path%>
+</div>
+<div class="col-sm-3">
+</div> 
+</div>  
+
+  </div>
+
+<% end %>

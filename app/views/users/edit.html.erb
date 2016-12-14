@@ -1,0 +1,68 @@
+
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<nav class="navbar navbar-default">
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" integrity="sha256-zV9aQFg2u+n7xs0FTQEhY0zGHSFlwgIu7pivQiwJ38E=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js" integrity="sha256-xoE/2szqaiaaZh7goVyF5p9C/qBu9dM3V5utrQaiJMc=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <div class="container" >
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <%= image_tag("logo.png")%><p style="font-family:'Pacifico',cursive;font-size:28px;">Events Schedule</p></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+
+          <p class="active">
+            
+            <%= link_to "<button class=btn btn-success ng-click=capture()>Log out</button>".html_safe,log_out_path%>
+            
+           
+            <dir id="user_nav">
+             <p style="font-size:18px"><b>logged in as</b></p><%= current_user.username%>
+</dir>
+ </p>        
+</ul>
+          
+
+          </div>  
+        
+      </nav>
+
+<%= form_for @user, url:user_update_path, method: :put do |f|%>
+
+</br></br>
+
+  <div style="font-size:18px;">
+  
+  <div class="container">
+  <h1 style="text-align:center">Profile</h1></br>
+ <div class="row">
+ <div class="col-sm-4">
+ </div>
+ <div class="col-sm-5">
+      <%= f.label "Enter First name" %>    <%= f.text_field :firstname , class: "form-control",required: true%></br></br>
+    <%= f.label :Enter_Last_name%>       <%= f.text_field :lastname , class: "form-control",:required=>true %></br></br>
+    <%= f.label :Enter_User_name%>       <%= f.text_field :username, class: "form-control",:required=>true%></br></br>
+    <%= f.label :Enter_valid_Email %>           <%= f.email_field :email, class: "form-control",:required=>true %></br></br>
+    <%= f.label :Enter_Ph_number%>    <%= f.text_field :phone,class: "form-control",:required=>true %></br></br>
+    <%= f.label :Enter_password %>              <%= f.password_field :password,class: "form-control",:required=>true %></br></br>
+      <% if @user.errors.any? %>
+    <div class="error_messages">
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.label :password_confirmation %>  <%= f.password_field :password_confirmation,class: "form-control",:required=>true %></br></br>
+  <%= f.submit :Submit,:class=>"btn" %>
+  <%= link_to "<button class=btn btn-success>Cancel</button>".html_safe,event_new_path%>
+</div>
+<div class="col-sm-3">
+</div> 
+</div>  
+
+  </div>
+
+<% end %>

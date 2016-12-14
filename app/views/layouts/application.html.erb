@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EventsSchedules</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery-1.3.2.min', 'jquery.validate.min', 'application' %>
+ <%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+</br>
+</br>
+
+<%= yield %>
+
+</br></br></br></br></br>
+<hr>
+<hr>
+      <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9">
+          <h3>Subcribe</h3>
+          <p><textarea rows="1" cols="18" placeholder="Email"></textarea></p>
+          <a class="btn btn-primary" href="#" role="button">SUBMIT</a>
+         </div>
+         <div class="col-sm-3">
+         <p>&copy; 2016 Company, Inc.</p>
+         <p>&middot;<a href="#">Privacy</a></p>
+         <p>&middot;<a href="#">Terms of use</a></p>
+         <p>&middot;<a href="#">Whats new?</a></p>
+         <h4> Time square,Manhattan,New york</h4>
+         </div>
+     
+        </div>
+      </div>
+      </footer>
+
+      
+</body>
+</html>

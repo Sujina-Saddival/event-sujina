@@ -1,0 +1,38 @@
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<nav class="navbar navbar-default">
+  <div class="container" >
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+          <%= image_tag("logo.png")%><p style="font-family:'Pacifico',cursive;font-size:28px;">Events Schedule</p></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+   
+     
+      <li class="active">
+ 
+      <li><%= link_to "<button class=btn btn-success>Log in</button>".html_safe,login_form_path%>
+      </li>
+        <li><%= link_to "<button class=btn btn-success>Not user? Sign up</button>".html_safe,user_new_path%>
+      </li>
+
+       </ul>
+       
+  </div>
+</nav>
+</br>
+</br>
+
+<div class="container">
+    <div class="jumbotron">
+      <h1 style="font-family:'Pacifico',cursive; ">Events Schedule</h1>      
+      <p>Invite your Invitees to your special Occasion</p>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-10">
+        <%= image_tag("main.jpg") %>
+      </div>
+    </div>
+</div> 
+

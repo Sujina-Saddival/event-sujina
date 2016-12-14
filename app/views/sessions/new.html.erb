@@ -1,0 +1,56 @@
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<nav class="navbar navbar-default">
+  <div class="container" >
+    <div class="navbar-header">
+    
+          <%=link_to (image_tag("logo.png")),'/#'%>
+          <p style="font-family:'Pacifico',cursive;font-size:28px;">Events Schedule</p>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+   
+     
+      <li class="active">
+
+      <li class="active">
+       <li><%= link_to "<button class=btn btn-success>Not user? Sign up</button>".html_safe,user_new_path%>
+      </li>
+      <li>
+        <%= link_to "Sign in with Twitter","/auth/twitter",id: "sign_in"%>
+      </li>
+       </ul>
+       
+  </div>
+</nav>
+
+<%= form_tag login_create_path do %>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-5">
+        <h1>Login in</h1>
+          <div style="font-size:18px;">
+            <p>
+            <%= label_tag :email %><br />
+            <%= text_field_tag :email, params[:email],class: "form-control" %>
+            </p>
+            <p>
+            <%= label_tag :password %><br />
+            <%= password_field_tag :password,class: "form-control" %>
+            </p></br>
+            <% flash.each do |name,msg|%>
+            <%= content_tag :div, msg,:id => "flash_#{name}"%>
+            <%end%></br>
+          </div>
+          <%= submit_tag "Submit" ,:class=>"btn" %>
+          <%= link_to "<button class=btn btn-success>Cancel</button>".html_safe,main_form_path%>
+      </div>
+      <div class="col-sm-4">
+        
+      </div>
+    </div>
+  </div>
+
+<% end %>

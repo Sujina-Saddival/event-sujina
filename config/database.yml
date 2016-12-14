@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  port: 5432
+  username: postgres
+  password: password
+  database: event_schedules
+  host: localhost
+
+test:
+  adapter: postgresql
+  port: 5432
+  username: postgres
+  password: password
+  database: event_schedules
+  host: localhost
+
