@@ -1,36 +1,4 @@
-<!DOCTYPE html>
-
-<html lang="en" ng-app="eventApp" ng-controller="eventController"  >
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-</head>
-<body>
-<nav class="navbar navbar-default">
-  <div class="container" >
-    <div class="navbar-header">
-     
-          <%=link_to (image_tag("logo.png")),'/#'%><p style="font-family:'Pacifico',cursive;font-size:28px;">Events Schedule</p>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-     
-     
-      <li class="active">
-
-      
-      <li class="active">
-      <li><%= link_to "<button class=btn btn-success>Log in</button>".html_safe,login_form_path%>
-      </li>
-    
-      
-  </div>
-</nav>
-
+<%= render 'partials/signup'%>
 <%= form_for @user,url: user_create_path do |f| %>
 </br></br>
 

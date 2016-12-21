@@ -1,0 +1,103 @@
+
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<nav class="navbar navbar-default">
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" integrity="sha256-zV9aQFg2u+n7xs0FTQEhY0zGHSFlwgIu7pivQiwJ38E=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js" integrity="sha256-xoE/2szqaiaaZh7goVyF5p9C/qBu9dM3V5utrQaiJMc=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <div class="container" >
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <%= image_tag("logo.png")%><p style="font-family:'Pacifico',cursive;font-size:28px;">Events Schedule</p></a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+
+          <p class="active">
+            
+            <%= link_to "<button class=btn btn-success ng-click=capture()>Log out</button>".html_safe,log_out_path%>
+            
+           
+            <dir id="user_nav">
+             <p style="font-size:18px"><b>logged in as</b></p><%= current_user.username%>
+</dir>
+ </p>        
+</ul>
+          
+
+          </div>  
+        
+      </nav>
+
+
+
+</br></br>
+
+  <div style="font-size:18px;">
+  
+  <div class="container">
+  <h1 style="text-align:center">Event</h1></br>
+ <div class="row">
+
+ <div class="col-sm-6" style="font-size:14">
+<%binding.pry%>
+      <b>Event</b>            <%=@event.event%> </br></br>
+    <b>Description</b>        <%=@event.description%></br></br>
+    <b>Organizer</b>          <%=@event.invited%> </br></br>
+    <b>Date</b>          <%=@event.date%> </br></br>
+    <b>Time</b>          <%=@event.time%> </br></br>
+    <b>Venue</b>          <%=@event.venue%> </br></br>
+
+
+<button class="btn clickme">Post</button>
+      <%= link_to "<button class=btn btn-success>Back</button>".html_safe,event_new_path(current_user)%></br></br>
+
+      <% @comments.each do |comment| %> 
+     
+
+      <%if comment.event_id == @event.id  %>
+      <%user = comment.user_id%>
+      <%user=User.find(user)%>
+      <b><%= user.username%></b>
+      <%= comment.description%></br>
+      <%end%>
+<%end%>
+
+</div>
+<div class="hidetext">
+<div class="col-sm-6">
+
+      <%= form_for :comment,url: comment_create_path(@event) do |f| %>
+
+      </br></br>
+
+      <b><h4 style="text-align:center">Post Comment</h4></b>
+      <%= f.label "Enter Title" %>    <%= f.text_field :title , class: "form-control",required: true%></br>
+      <%= f.label :Enter_Description%>       <%= f.text_field :description , class: "form-control",:required=>true %></br>
+    
+      <%= f.submit :Submit,:class=>"btn" %>
+      <%= link_to "<button class=btn btn-success>Cancel</button>".html_safe,event_show_path(@event)%>
+
+
+
+<%end%>
+
+  
+</div>
+
+</div> 
+</div>  
+
+  </div>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script>
+ $(document).ready(function() {
+    $(".hidetext").hide();
+        $(".clickme").click(function() {
+            $(".hidetext").show();
+    });
+});
+  </script>
+
+</body>

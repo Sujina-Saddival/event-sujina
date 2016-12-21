@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -36,6 +37,8 @@ Rails.application.routes.draw do
 
   get 'edit/:user_id/:event_id' => 'events#edit', as: :event_edit
 
+  get 'edit/:event_id' => 'events#show', as: :event_show
+
   put "edit/:user_id/:event_id" => "events#update", as: :event_update
 
   get "user/edit/:user_id" => "users#edit" , as: :user_edit
@@ -49,6 +52,8 @@ Rails.application.routes.draw do
   post '/patient' => 'patients#create', as: :patient_create
 
   get '/patient/:patient_id' => 'patients#show' , as: :patient_show
+
+  post 'comment/create/:event_id' => 'comments#create', as: :comment_create
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

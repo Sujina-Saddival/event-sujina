@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   # 	end
   #  end
  def create   
- binding.pry             
+      
   if params[:provider] == "twitter"
     auth = request.env["omniauth.auth"]               
     user = auth.find_by_provider_and_uid(auth["provider"],
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:email], params[:password])
   end
   if user 
- binding.pry             
+           
     
     session[:user_id] = user.id         
     redirect_to event_new_path(user)              
