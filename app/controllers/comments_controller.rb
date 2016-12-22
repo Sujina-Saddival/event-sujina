@@ -12,10 +12,10 @@ class CommentsController < ApplicationController
 
 	end
 
-	# def index
-	# 	@comments =  Comment.all
-	# 	@event = Event.find(params[:event_id])
-	# end
+	def index
+		@comments =  Comment.all
+		# @event = Event.find(params[:event_id])
+	end
 
 	private
 	def comment_params

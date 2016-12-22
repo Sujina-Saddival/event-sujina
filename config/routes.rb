@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  
+  ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  put "/admin/users/:user.id/approve" => 'admin/users#approve', as: :admin_approve_user
   root "users#main_form"
   
   get '/auth/:provider/callback', to: 'sessions#create'
