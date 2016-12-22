@@ -3,8 +3,13 @@ class UsersController < ApplicationController
 		def create
 		
   		@user = User.new(user_params)
-  		if @user.save
   			binding.pry
+      @user.image = params[:user][:images]
+
+      @user.save!
+   
+      
+      if @user.save
   			UserMailer.registration_confrimation(@user).deliver_now
   			redirect_to login_form_path
 
