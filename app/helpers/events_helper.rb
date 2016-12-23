@@ -2,7 +2,8 @@ module EventsHelper
 	def new
 		@event=Event.new
 		@users=User.all
-		@events=Event.paginate(:page => params[:page], per_page: 2)
+		# @events=Event.paginate(:page => params[:page], per_page: 2)
+		@events=Event.all
 		# binding.pry
 		gon.event=@events
 		

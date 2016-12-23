@@ -63,7 +63,7 @@
           </div>
         </div> 
         <% end %>
-        <%= will_paginate @events,renderer: BootstrapPagination::Rails %>   
+         
       </div>
 
       <div class="col-sm-6">
@@ -94,9 +94,14 @@
 
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create New event</button>
-
+        <h2>Registerted Users</h2>
+            <% @users.each do |f| %>
+            <%if f.id!=current_user.id%>
+            <b>Name:</b> <%= link_to f.username, show_user_path(f)%></br>
+            <%end%>
+          <%end%>
         <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content-->

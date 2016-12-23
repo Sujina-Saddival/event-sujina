@@ -58,6 +58,12 @@ Rails.application.routes.draw do
 
   post 'comment/create/:event_id' => 'comments#create', as: :comment_create
 
+  get 'change/password/' => 'users#change_password', as: :change_password
+
+  put 'update/password/' => 'users#password_update', as: :password_update
+
+  get 'show/user/:user_id' => 'users#show_user', as: :show_user
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

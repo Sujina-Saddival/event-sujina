@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 		def create
 		
   		@user = User.new(user_params)
-  			binding.pry
       @user.image = params[:user][:images]
 
       @user.save!
@@ -11,7 +10,8 @@ class UsersController < ApplicationController
       
       if @user.save
   			UserMailer.registration_confrimation(@user).deliver_now
-  			redirect_to login_form_path
+      redirect_to user_new_path, :flash => { :success => "Mail has been sent to respective Email ID.Please follow the instrations as given." }
+  			
 
   			# render :json => @user
   			# render json:{data:@user}

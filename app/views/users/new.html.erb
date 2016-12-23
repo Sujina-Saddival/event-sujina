@@ -28,6 +28,9 @@
   <% end %>
     <%= f.label :password_confirmation %>  <%= f.password_field :password_confirmation,class: "form-control",:ng => {:model => "confrim"},:required=>true %></br></br>
   
+<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %></br>
   <%= f.submit :Submit,:class=>"btn",:ng => {:disabled => "result"}  %>
   <%= link_to "<button class=btn btn-success>Cancel</button>".html_safe,main_form_path%>
 </div>

@@ -45,19 +45,10 @@
     <%= f.label :Enter_User_name%>       <%= f.text_field :username, class: "form-control",:required=>true%></br></br>
     <%= f.label :Enter_valid_Email %>           <%= f.email_field :email, class: "form-control",:required=>true %></br></br>
     <%= f.label :Enter_Ph_number%>    <%= f.text_field :phone,class: "form-control",:required=>true %></br></br>
-    <%= f.label :Enter_password %>              <%= f.password_field :password,class: "form-control",:required=>true %></br></br>
-      <% if @user.errors.any? %>
-    <div class="error_messages">
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <%= f.label :password_confirmation %>  <%= f.password_field :password_confirmation,class: "form-control",:required=>true %></br></br>
   <%= f.submit :Submit,:class=>"btn" %>
   <%= link_to "<button class=btn btn-success>Cancel</button>".html_safe,event_new_path%>
+  <%= link_to "<button class=btn btn-success>Change password</button>".html_safe,change_password_path%>
+
 </div>
 <div class="col-sm-3">
 </div> 
