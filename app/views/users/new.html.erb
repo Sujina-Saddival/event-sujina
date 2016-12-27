@@ -15,6 +15,20 @@
     <%= f.label :Enter_User_name%>       <%= f.text_field :username, class: "form-control",:required=>true%></br></br>
     <%= f.label :Enter_valid_Email %>           <%= f.email_field :email, class: "form-control",:required=>true %></br></br>
     <%= f.label :Enter_Ph_number%>    <%= f.text_field :phone,class: "form-control",:required=>true %></br></br>
+    <%= f.label :Select_age %> 
+             
+                <ul>
+                 
+                  <li>
+                    <%= radio_button_tag :age, "20-40"%>20-40</br>
+                    <%= radio_button_tag :age, '40+' %> > 40</br>
+                   
+                    <%= radio_button_tag :age,:type %> other
+                    <%= f.text_field :age, :id => "text",:style => "display: none" %></br>
+
+                  </li>
+                  
+                </ul>
     <%= f.label :Upload_Image%> <%= f.file_field :images %>
     <%= f.label :Enter_password %>              <%= f.password_field :password,class: "form-control", :ng => {:model => "password"},:required =>true %></br></br>
       <% if @user.errors.any? %>
@@ -41,3 +55,18 @@
   </div>
 
 <% end %>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+ $("input[type=radio]").click(function () {
+debugger;
+if ($('#age_type').is(':checked')) { 
+      $('#text').show();
+    } else {
+      $('#text').hide();
+    }
+});
+});
+</script>

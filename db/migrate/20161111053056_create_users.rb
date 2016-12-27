@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone
       t.string :password_hash
       t.string :password_salt
+      t.string :age
 
       t.timestamps null: false
     end

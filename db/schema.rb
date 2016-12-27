@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20161222094912) do
     t.string   "phone"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.string   "age"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "uid"

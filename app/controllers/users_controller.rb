@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
 	include UsersHelper
 		def create
-		
-  		@user = User.new(user_params)
+      @user = User.new(user_params)
       @user.image = params[:user][:images]
-
-      @user.save!
-   
+		  if (params[:user][:age] == "")
+         @user.age = params[:age]
+      else
+        @user.age = params[:user][:age]
+      end
+        @user.save
       
       if @user.save
   			UserMailer.registration_confrimation(@user).deliver_now
