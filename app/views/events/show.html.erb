@@ -42,7 +42,11 @@
  <div class="col-sm-6" style="font-size:14">
       <b>Event</b>            <%=@event.event%> </br></br>
     <b>Description</b>        <%=@event.description%></br></br>
-    <b>Organizer</b>          <%=@event.invited%> </br></br>
+  
+    <b>Organizer</b>  
+      <% u=@event.user_id %>
+      <%name=User.find_by_id(u) %>
+      <%= name.username %> </br></br>
     <b>Date</b>          <%=@event.date%> </br></br>
     <b>Time</b>          <%=@event.time%> </br></br>
     <b>Venue</b>          <%=@event.venue%> </br></br>

@@ -22,7 +22,7 @@ gem 'paperclip', '~> 3.0'
 # gem 'will_paginate-bootstrap', '~> 1.0.0'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'devise'
 gem 'kaminari'
 # Use jquery as the JavaScript library
@@ -37,7 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7' , :require => "bcrypt"
-
+gem 'jquery-ui-rails', '~> 4.2.1'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

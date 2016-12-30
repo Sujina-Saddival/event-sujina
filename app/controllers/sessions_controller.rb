@@ -26,11 +26,23 @@ class SessionsController < ApplicationController
            
     
     session[:user_id] = user.id         
-    redirect_to event_new_path(user)              
+    redirect_to event_new_path(user) 
     flash[:alert] = "you are successfully logged in "             
+    binding.pry
+    # TDD
+    # render json: {
+    #   data: user,status: 200, msg: "successfully logged in"
+    # }   
+
   else                    
     flash.now.alert = "Invalid email or password"              
-    redirect_to root_path            
+    redirect_to root_path  
+    binding.pry
+    
+    # TDD  
+    # render json: {
+    #   error: user.errors,status: 422
+    # }        
    end  
 end
 
